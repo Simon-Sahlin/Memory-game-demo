@@ -21,11 +21,9 @@ function App() {
   }, []);
 
   function handleClick(index){
-    console.log("Clicked " + index)
     let newArray = [...imagesArray];
     
     if (imagesArray[index].clicked){
-      console.log("You Lose!")
       for (let i = 0; i < newArray.length; i++) {
         newArray[i]["clicked"] = false;
       }
@@ -48,14 +46,12 @@ function App() {
       <h2>Get points by clicking on an image but don't click on any more than once!</h2>
       <p>Score: {score}</p>
       <p>High Score: {highScore}</p>
-      {/* {console.log("NEW RENDER!! " + (imagesArray.length > 0 ? imagesArray[0].title : "(Empty)"))} */}
-      {console.log(imagesArray)}
 
       <div className="cardsWrapper">
         {imagesArray.length <= 0 ? <p>Loading Images...</p> : 
           imagesArray.map((item, index) =>{
             return (
-              <div key={item.id} className="card" onClick={()=>handleClick(index)} style={{ backgroundColor: item.clicked ? 'red' : 'blue' }}>
+              <div key={item.id} className="card" onClick={()=>handleClick(index)}>
                 <p>{item.title}</p>
                 <img src={item.images.original.url}/>
               </div>

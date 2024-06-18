@@ -1273,6 +1273,7 @@ export async function fetchImages(){
 
     return fakeResponse
 
+    //Currently has NO error handling!
     const response = await fetch("https://api.giphy.com/v1/gifs/search?api_key="+APIKey+"&q="+search+"&limit="+length+"&offset=0&rating=g&lang=en&bundle=messaging_non_clips", {mode: 'cors'})
     const data = await response.json();
     return data;

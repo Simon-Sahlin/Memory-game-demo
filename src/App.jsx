@@ -20,18 +20,21 @@ function App() {
 
   return (
     <>
-      <h1>Hello World</h1>
+      <h1>Welcome to Cat Memory</h1>
+      <h2>Get points by clicking on an image but don't click on any more than once!</h2>
       {console.log(imagesArray)}
-      {imagesArray.length <= 0 ? <p>Loading Images...</p> : 
-        imagesArray.map((item) =>{
-          return (
-            <div key={item.id}>
-              <img src={item.images.original.url}/>
-              <h2>{item.title}</h2>
-            </div>
-          )
-        })
-      }
+      <div className="cardsWrapper">
+        {imagesArray.length <= 0 ? <p>Loading Images...</p> : 
+          imagesArray.map((item) =>{
+            return (
+              <div key={item.id} className="card">
+                <p>{item.title}</p>
+                <img src={item.images.original.url}/>
+              </div>
+            )
+          })
+        }
+      </div>
     </>
   )
 }
